@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	
+	<body>
+	
+		<form action="exchange" method="post">
+			<input type="number" name="huf" placeholder="HUF"/>
+			<select name="curr">
+				<option th:each="currencies : ${rates.getExchangeRates()}" th:value="${currencies}" th:text="${currencies}"></option>
+			</select>
+			<input type="submit"/>
+		</form>
+
+		<p th:if="${exchange} != null" th:text="${exchange}"></p>
+	
+	</body>
+</html>
